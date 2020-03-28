@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FiPower, FiTrash2 } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
+import api from '../../services/api';
 import logoImg from '../../assets/logo.svg';
 import './styles.css'
 
 export default function Profile() {
+    const [incidents, setIncidents] = useState([]);
+    const ongId = localStorage.getItem('ongId');
     const ongName = localStorage.getItem('ongName');
+
+    useEffect(() => {
+        api.get('profile', {
+            headers: {
+                Authorization: ongId
+            }
+        }).then(response => {
+            setIncidents(response.data)
+        })
+    }, [ongId]);
 
     return (
         <div className="profile-container">
@@ -20,50 +33,19 @@ export default function Profile() {
             </header>
             <h1>Casos cadastrados</h1>
             <ul>
-                <li>
-                    <strong>CASO:</strong>
-                    <p>Caso teste</p>
-                    <strong>DESCRIÇÃO</strong>
-                    <p>Descrição teste</p>
-                    <strong>VALOR</strong>
-                    <p>R$ 120,00</p>
-                    <button type="button">
-                        <FiTrash2 size={20} color="#a8a8b3" />
-                    </button>
-                </li>
-                <li>
-                    <strong>CASO:</strong>
-                    <p>Caso teste</p>
-                    <strong>DESCRIÇÃO</strong>
-                    <p>Descrição teste</p>
-                    <strong>VALOR</strong>
-                    <p>R$ 120,00</p>
-                    <button type="button">
-                        <FiTrash2 size={20} color="#a8a8b3" />
-                    </button>
-                </li>
-                <li>
-                    <strong>CASO:</strong>
-                    <p>Caso teste</p>
-                    <strong>DESCRIÇÃO</strong>
-                    <p>Descrição teste</p>
-                    <strong>VALOR</strong>
-                    <p>R$ 120,00</p>
-                    <button type="button">
-                        <FiTrash2 size={20} color="#a8a8b3" />
-                    </button>
-                </li>
-                <li>
-                    <strong>CASO:</strong>
-                    <p>Caso teste</p>
-                    <strong>DESCRIÇÃO</strong>
-                    <p>Descrição teste</p>
-                    <strong>VALOR</strong>
-                    <p>R$ 120,00</p>
-                    <button type="button">
-                        <FiTrash2 size={20} color="#a8a8b3" />
-                    </button>
-                </li>
+                {incidents.map(incidents => (
+                    <li key={incidents.id}>
+                        <strong>CASO:</strong>
+                        <p>{incidents.title}</p>
+                        <strong>DESCRIÇÃO</strong>
+                        <p>{incidents.description}</p>
+                        <strong>VALOR</strong>
+                        <p>{incidents.value}</p>
+                        <button type="button">
+                            <FiTrash2 size={20} color="#a8a8b3" />
+                        </button>
+                    </li>
+                ))}
             </ul>
         </div>
     );
