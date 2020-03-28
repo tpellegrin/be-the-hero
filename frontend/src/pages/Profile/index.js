@@ -21,6 +21,20 @@ export default function Profile() {
         })
     }, [ongId]);
 
+    async function handleDeleteIncident(id) {
+        try {
+            await api.delete(`incidents/${id}`, {
+                headers: {
+                    Authorization: ongId
+                }
+            });
+
+            setIncidents(incidents.filter(incident => incident.id !== id))
+        } catch (err) {
+            alert('Erro ao deletar caso. Tente novamente.');
+        } 
+    }
+
     return (
         <div className="profile-container">
             <header>
@@ -33,15 +47,15 @@ export default function Profile() {
             </header>
             <h1>Casos cadastrados</h1>
             <ul>
-                {incidents.map(incidents => (
-                    <li key={incidents.id}>
+                {incidents.map(incident => (
+                    <li key={incident.id}>
                         <strong>CASO:</strong>
-                        <p>{incidents.title}</p>
+                        <p>{incident.title}</p>
                         <strong>DESCRIÇÃO</strong>
-                        <p>{incidents.description}</p>
+                        <p>{incident.description}</p>
                         <strong>VALOR</strong>
                         <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(incidents.value)}</p>
-                        <button type="button">
+                        <button onClick={() => handleDeleteIncident(incident.id)} type="button">
                             <FiTrash2 size={20} color="#a8a8b3" />
                         </button>
                     </li>
