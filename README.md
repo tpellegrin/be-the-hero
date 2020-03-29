@@ -33,7 +33,7 @@
   <img alt="Frontend" src="preview/prev.png" width="100%">
 </p>
 
-## :rocket: Tecnologias
+## Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
