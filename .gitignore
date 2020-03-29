@@ -163,6 +163,9 @@ temp/
 
 ### Expo ###
 
+.expo
+__generated__
+web-build
 .expo/*
 npm-debug.*
 *.jks
