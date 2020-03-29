@@ -7,16 +7,16 @@
 </h4>
 
 <p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/apsampaio/semana-omnistack-11">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/tpellegrin/be-the-hero">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/apsampaio/semana-omnistack-11">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/tpellegrin/be-the-hero">
   
-  <a href="https://github.com/apsampaio/semana-omnistack-11/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/apsampaio/semana-omnistack-11">
+  <a href="https://github.com/tpellegrin/be-the-hero/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/tpellegrin/be-the-hero">
   </a>
 
-  <a href="https://github.com/apsampaio/semana-omnistack-11/issues">
-    <img alt="Repository issues" src="https://img.shields.io/github/issues/apsampaio/semana-omnistack-11">
+  <a href="https://github.com/tpellegrin/be-the-hero/issues">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/tpellegrin/be-the-hero">
   </a>
 </p>
 
@@ -30,7 +30,7 @@
 <br>
 
 <p align="center">
-  <img alt="Frontend" src="git/prev.png" width="100%">
+  <img alt="Frontend" src="preview/prev.png" width="100%">
 </p>
 
 ## :rocket: Tecnologias
@@ -59,7 +59,7 @@ Depois que o merge da sua pull request for feito, você pode deletar a sua branc
 
 #### Clonando o projeto
 ```sh
-git clone https://github.com/apsampaio/semana-omnistack-11.git
+git clone https://github.com/tpellegrin/be-the-hero.git
 cd semana-omnistack-11
 npm install
 ```
